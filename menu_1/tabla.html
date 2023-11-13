@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Barreras de seguridad</title>
+</head>
+<body>
+    <h1>Barreras de seguridad</h1>
+    <ul id="itemList">
+        <li>
+            <input type="checkbox" id="item1" data-value="3">
+            <label for="item1">Barrera de seguridad 1</label>
+        </li>
+        <li>
+            <input type="checkbox" id="item2" data-value="2">
+            <label for="item2">Barrera de seguridad 2</label>
+        </li>
+        <li>
+            <input type="checkbox" id="item3" data-value="5"> 
+            <label for="item3">Barrera de seguridad 3</label>
+        </li>
+        <li>
+            <input type="checkbox" id="item4" data-value="1">
+            <label for="item4">Barrera de seguridad 4</label>
+        </li>
+        <li>
+            <input type="checkbox" id="item4" data-value="10">
+            <label for="item4">Barrera de seguridad 5</label>
+        </li>
+    </ul>
+
+    <table id="dataTable">
+        <thead class="text-center">
+            <tr>
+                <th style="width: 5%;">Letra</th>
+                <th style="width: 30%;">Severidad</th>
+                <th style="width: 30%;">Descripción</th>
+                <th style="width: 10%;">Acciones</th>
+            </tr>
+        </thead>
+    </table>
+
+    <p>Puntuación total: <span id="score">0</span></p>
+
+    <script>
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const scoreDisplay = document.getElementById('score');
+        let score = 0;
+
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', () => {
+                const label = checkbox.nextElementSibling;
+                const value = parseInt (checkbox.getAttribute('data-value'));
+                if (checkbox.checked) {
+                    score += value;
+                    label.style.textDecoration = 'line-through';
+                  
+                } else {
+                    score -= value
+                    label.style.textDecoration = 'none';
+                }
+                scoreDisplay.textContent = score;
+            });
+        });
+    </script>
+
+
+</body>
+</html>

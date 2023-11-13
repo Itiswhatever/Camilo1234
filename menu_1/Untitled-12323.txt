@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Dinámico</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-formbuilder/dist/form-builder.min.css">
+</head>
+
+<body>
+
+    <form id="myForm">
+        <!-- El formulario se construirá dinámicamente aquí -->
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-formbuilder/dist/form-builder.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Inicializar el constructor de formularios
+            const formBuilder = $('#myForm').formBuilder();
+
+            // Agregar un nuevo campo al formulario
+            $('#myForm').on('click', '.addField', function () {
+                formBuilder.actions.addField('text', 'Nueva Casilla');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
